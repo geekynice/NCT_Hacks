@@ -10,6 +10,19 @@
     <link rel="icon" href="../static/images/main_logo.png" type="image/x-icon">
 </head>
 <body>
+  {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">{{ message }}</strong>
+      <button type="button" class="absolute top-0 right-0 px-4 py-3" data-dismiss="alert" aria-label="Close">
+        <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 5.652a.5.5 0 0 1 0 .707L10.06 10l4.288 4.646a.5.5 0 1 1-.708.706L9.352 10l4.288-4.646a.5.5 0 0 1 .708-.702z"/></svg>
+      </button>
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
   <nav class="fixed container flex justify-around py-0 mx-auto bg-gray-100">
     <div class="flex items-center">
       <img class="logo-image" src="{% static 'images/main_logo.png'%}" alt="Logo of FoodNet">

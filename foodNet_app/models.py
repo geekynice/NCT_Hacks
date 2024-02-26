@@ -11,7 +11,7 @@ class UserModel(models.Model):
     DOB = models.DateField() # must be 18 years or older
     address = models.CharField(max_length=200)
     is_donor = models.BooleanField(default=True)
-
+    name = models.CharField(max_length = 90, null = False, default = '')
     def clean(self):
         age = timezone.now().date().year - self.DOB.year - ((timezone.now().date().month, timezone.now().date().day) < (self.DOB.month, self.DOB.day))
         if age < 18:
