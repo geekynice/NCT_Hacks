@@ -30,7 +30,7 @@
   <div class="flex-1 p-8">
     <!-- Header with User Photo -->
     <header class="flex items-center justify-between mb-8">
-      <h1 class="text-2xl font-bold text-gray-800">Welcome, Prajwal</h1>
+      <h1 class="text-2xl font-bold text-gray-800">Food Details</h1>
       <div class="flex items-center">
         <img src="{% static 'images/prajwal.jpg'%}" alt="User Photo" class="h-8 w-8 rounded-full mr-2">
         <span class="text-gray-700">Prajwal Neupane</span>
@@ -38,9 +38,34 @@
     </header>
 
     <!-- Main Content Goes Here -->
-    <div class="bg-white p-8 rounded-lg shadow-md">
-      <!-- Your dashboard content -->
-      <p>Dashboard Content</p>
+    <div class="bg-white p-4 rounded-lg shadow-md">
+      <section class="container mx-auto p-8 bg-white rounded-lg mt-0">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">Bread to go</h1>
+    
+        <!-- Food Image -->
+        <img src="{% static 'images/bread.webp'%}" alt="Food Image" class="w-auto h-64 object-cover mb-6 rounded-lg">
+    
+        <!-- Food Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Left Column -->
+          <div>
+            <p class="text-gray-800"><span class="font-bold">Food Type:</span> Vegetarian</p>
+            <p class="text-gray-800"><span class="font-bold">Food Category:</span> Bakery</p>
+            <p class="text-gray-800"><span class="font-bold">Food Weight:</span> 500g</p>
+            <p class="text-gray-800"><span class="font-bold">Expiry Date:</span> 2024-03-01</p>
+          </div>
+    
+          <!-- Right Column -->
+          <div>
+            <p class="text-gray-800"><span class="font-bold">Description:</span> Fresh Bread - Pick up near bathurst station.</p>
+            <p class="text-gray-800"><span class="font-bold">Postal Code:</span> M5S 2R6</p>
+            <p class="text-gray-800"><span class="font-bold">Cooked Time:</span> 2024-02-28 18:00</p>
+            <p class="text-gray-800"><span class="font-bold">Status:</span> True</p>
+          </div>
+        </div>
+
+        <button class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 focus:outline-none mt-6">Accept Food</button>
+      </section>
     </div>
   </div>
 
