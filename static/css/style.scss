@@ -56,4 +56,8 @@ body {
   .button:hover {
     background-color: #2980b9; /* Button background color on hover */
   }
+
+  body, section{
+    overflow-x: hidden;
+  }
   

@@ -10,6 +10,12 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+def feed(request):
+    return render(request, 'feed.html')
+
 def register(request):
     if request.method == 'POST':
         name = request.POST.get('first_name')
