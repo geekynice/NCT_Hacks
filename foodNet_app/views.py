@@ -40,7 +40,7 @@ def signin(request):
                 return redirect(next_url)
             else:
                 messages.success(request, 'Logged In Succesfully')
-                return redirect('index')
+                return redirect('dashboard')
         else:
             messages.error(request, 'Invalid credentials. Please try again.')
             return redirect('login')
