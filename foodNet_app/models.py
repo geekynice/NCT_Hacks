@@ -6,8 +6,8 @@ from django.contrib.auth.models import AbstractUser
 
 class UserModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_pic = models.ImageField(upload_to='profile_pic/')
-    photo_id = models.ImageField(upload_to='photo_id/')
+    profile_pic = models.ImageField(upload_to='static/profile_pic')
+    photo_id = models.ImageField(upload_to='static/photo_id')
     DOB = models.DateField() # must be 18 years or older
     address = models.CharField(max_length=200)
     is_donor = models.BooleanField(default=True)

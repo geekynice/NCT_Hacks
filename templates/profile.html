@@ -30,18 +30,39 @@
   <div class="flex-1 p-8">
     <!-- Header with User Photo -->
     <header class="flex items-center justify-between mb-8">
-      <h1 class="text-2xl font-bold text-gray-800">Welcome, {{ user.username }}</h1>
+      <h1 class="text-2xl font-bold text-gray-800">Profile</h1>
       <div class="flex items-center">
-        <img src="{{ userDetails.profile_pic.url }}" alt="{{ user.username }}" class="h-8 w-8 rounded-full mr-2">
-
-        <span class="text-gray-700">{{ user.username }}</span>
+        <img src="{% static 'images/prajwal.jpg'%}" alt="User Photo" class="h-8 w-8 rounded-full mr-2">
+        <span class="text-gray-700">Prajwal Neupane</span>
       </div>
     </header>
 
     <!-- Main Content Goes Here -->
     <div class="bg-white p-8 rounded-lg shadow-md">
-      <!-- Your dashboard content -->
-      <p>Dashboard Content</p>
+      <section class="bg-white p-8 rounded-lg">
+       
+  
+        <!-- User Profile -->
+        <div class="flex items-center mb-6">
+          <img src="{%static 'images/prajwal.jpg'%}" alt="User Photo" class="h-16 w-16 rounded-full mr-4">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800">Prajwal Neupane</h3>
+            <p class="text-gray-600">prajwalneupane01@gmail.com</p>
+          </div>
+        </div>
+  
+        <!-- Additional Profile Details -->
+        <div class="mb-6">
+          <p class="text-gray-800"><span class="font-bold">Date of Birth:</span> April 14, 2003</p>
+          <p class="text-gray-800"><span class="font-bold">Address:</span> 565 Sherbourne St, Toronto, ON M4X 1W7</p>
+          <p class="text-gray-800"><span class="font-bold">Photo-ID: </span> </p>
+          <img class="h-20" src="{%static 'images/vision.jpg'%}" alt="">
+          <p class="text-gray-800"><span class="font-bold">Status:</span> Donor</p>
+        </div>
+  
+        <!-- Edit Profile Button -->
+        <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none">Edit Profile</button>
+      </section>
     </div>
   </div>
 

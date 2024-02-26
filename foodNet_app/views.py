@@ -10,6 +10,30 @@ from django.contrib.auth import authenticate,login,logout
 def index(request):
     return render(request, 'index.html')
 
+def dashboard(request, username):
+    user = get_object_or_404(User, username=username)
+
+    userDetails = get_object_or_404(UserModel, user=user)
+
+
+    context = {
+        'user': user,
+        'userDetails': userDetails
+    }
+    return render(request, 'dashboard.html', context)
+
+def feed(request):
+    return render(request, 'feed.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+
+def settings(request):
+    return render(request, 'settings.html')
+
+def fooddetails(request):
+    return render(request, 'fooddetails.html')
+
 def signin(request):
     if request.method == 'GET':
         return render(request, 'login.html')
@@ -25,7 +49,7 @@ def signin(request):
                 return redirect(next_url)
             else:
                 messages.success(request, 'Logged In Succesfully')
-                return redirect('index')
+                return redirect('dashboard')
         else:
             messages.error(request, 'Invalid credentials. Please try again.')
             return redirect('login')
