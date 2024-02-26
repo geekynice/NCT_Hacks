@@ -10,12 +10,6 @@ from django.contrib.auth import authenticate,login,logout
 def index(request):
     return render(request, 'index.html')
 
-def dashboard(request):
-    return render(request, 'dashboard.html')
-
-def feed(request):
-    return render(request, 'feed.html')
-
 def signin(request):
     if request.method == 'GET':
         return render(request, 'login.html')
