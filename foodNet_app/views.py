@@ -10,8 +10,17 @@ from django.contrib.auth import authenticate,login,logout
 def index(request):
     return render(request, 'index.html')
 
-def dashboard(request):
-    return render(request, 'dashboard.html')
+def dashboard(request, username):
+    user = get_object_or_404(User, username=username)
+
+    userDetails = get_object_or_404(UserModel, user=user)
+
+
+    context = {
+        'user': user,
+        'userDetails': userDetails
+    }
+    return render(request, 'dashboard.html', context)
 
 def feed(request):
     return render(request, 'feed.html')
