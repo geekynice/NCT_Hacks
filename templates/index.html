@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>FoodNet</title>
+    <link rel="icon" href="../static/images/main_logo.png" type="image/x-icon">
+</head>
+<body>
+  <nav class="container flex justify-around py-8 mx-auto bg-white">
+    <div class="flex items-center">
+      <img class="logo-image" src="{% static 'images/main_logo.png'%}" alt="Logo of FoodNet">
+    </div>
+    <!-- left header section -->
+    <!-- Left header section -->
+<div class="items-center hidden space-x-8 lg:flex">
+  <a href="" class="text-gray-600 hover:text-blue-500">Home</a>
+  <a href="" class="text-gray-600 hover:text-blue-500">About Us</a>
+  <a href="" class="text-gray-600 hover:text-blue-500">Blogs</a>
+  <a href="" class="text-gray-600 hover:text-blue-500">Our Team</a>
+  <a href="" class="text-gray-600 hover:text-blue-500">Contact Us</a>
+</div>
+
+<!-- Right header section -->
+<div class="flex items-center space-x-2">
+  <button class="px-4 py-2 text-blue-100 bg-blue-800 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">
+      Sign in
+  </button>
+  <button class="px-4 py-2 text-gray-200 bg-gray-400 rounded-md hover:bg-gray-300 transition duration-300 ease-in-out">
+      Sign up
+  </button>
+</div>
+
+  </nav>
+    
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    <script src="{% static 'main.js' %}"></script>
+</body>
+</html>

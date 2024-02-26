@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+nav .logo-image {
+  width: 45%;
+}/*# sourceMappingURL=style.css.map */
