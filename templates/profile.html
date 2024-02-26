@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Include Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Dashboard - FoodNet</title>
+</head>
+<body class="bg-gray-100 font-sans flex">
+
+  <!-- Side Navigation -->
+  <aside class="bg-gray-800 text-white h-screen w-1/5 overflow-y-auto">
+    <!-- Logo -->
+    <div class="flex items-center justify-center p-4">
+      <img src="{%static 'images/main_logo.png'%}" alt="FoodNet Logo" class="h-10">
+    </div>
+    <!-- Navigation Links -->
+    <nav>
+      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>
+      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Feeds</a>
+      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Profile</a>
+      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Settings</a>
+      <!-- Add more links as needed -->
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <div class="flex-1 p-8">
+    <!-- Header with User Photo -->
+    <header class="flex items-center justify-between mb-8">
+      <h1 class="text-2xl font-bold text-gray-800">Profile</h1>
+      <div class="flex items-center">
+        <img src="{% static 'images/prajwal.jpg'%}" alt="User Photo" class="h-8 w-8 rounded-full mr-2">
+        <span class="text-gray-700">Prajwal Neupane</span>
+      </div>
+    </header>
+
+    <!-- Main Content Goes Here -->
+    <div class="bg-white p-8 rounded-lg shadow-md">
+      <section class="bg-white p-8 rounded-lg">
+       
+  
+        <!-- User Profile -->
+        <div class="flex items-center mb-6">
+          <img src="{%static 'images/prajwal.jpg'%}" alt="User Photo" class="h-16 w-16 rounded-full mr-4">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800">Prajwal Neupane</h3>
+            <p class="text-gray-600">prajwalneupane01@gmail.com</p>
+          </div>
+        </div>
+  
+        <!-- Additional Profile Details -->
+        <div class="mb-6">
+          <p class="text-gray-800"><span class="font-bold">Date of Birth:</span> April 14, 2003</p>
+          <p class="text-gray-800"><span class="font-bold">Address:</span> 565 Sherbourne St, Toronto, ON M4X 1W7</p>
+          <p class="text-gray-800"><span class="font-bold">Photo-ID: </span> </p>
+          <img class="h-20" src="{%static 'images/vision.jpg'%}" alt="">
+          <p class="text-gray-800"><span class="font-bold">Status:</span> Donor</p>
+        </div>
+  
+        <!-- Edit Profile Button -->
+        <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none">Edit Profile</button>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>

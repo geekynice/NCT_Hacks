@@ -16,6 +16,15 @@ def dashboard(request):
 def feed(request):
     return render(request, 'feed.html')
 
+def profile(request):
+    return render(request, 'profile.html')
+
+def settings(request):
+    return render(request, 'settings.html')
+
+def fooddetails(request):
+    return render(request, 'fooddetails.html')
+
 def signin(request):
     if request.method == 'GET':
         return render(request, 'login.html')
