@@ -61,11 +61,13 @@ def register(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        profile_pic = request.POST.get('profile_pic')
-        photo_id = request.POST.get('photo_id')
         DOB = request.POST.get('DOB')
         address = request.POST.get('address')
         is_donor = request.POST.get('is_donor')
+
+        # Get the uploaded files from the FILES attribute
+        profile_pic = request.FILES.get('profile_pic')
+        photo_id = request.FILES.get('photo_id')
 
         try:
             if User.objects.filter(username=name).exists():
@@ -76,10 +78,10 @@ def register(request):
 
             user = User.objects.create_user(username=name, password=password, email=email)
 
-            userModel = UserModel.objects.create(user=user, user_id=user.id, profile_pic=profile_pic,
-                                                  photo_id=photo_id, DOB=DOB, address=address,
-                                                  is_donor=is_donor, name=name)
-            messages.success(request, 'Succesfully registered! Please Login now')
+            # Save the uploaded files
+            userModel = UserModel.objects.create(user=user, profile_pic=profile_pic, photo_id=photo_id,
+                                                  DOB=DOB, address=address, is_donor=is_donor, name=name)
+            messages.success(request, 'Successfully registered! Please Login now')
             return redirect('login')
         
         except IntegrityError as e:
@@ -88,7 +90,6 @@ def register(request):
 
     else:
         return render(request, 'register.html')
-    
 
 @login_required()
 def signout(request): 

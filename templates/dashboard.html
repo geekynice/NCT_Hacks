@@ -7,17 +7,7 @@
 
   <!-- Main Content Area -->
   <div class="flex-1 p-8">
-    <!-- Header with User Photo -->
-    <header class="flex items-center justify-between mb-8">
-      <h1 class="text-2xl font-bold text-gray-800">Welcome, {{ user.username }}</h1>
-      <div class="flex items-center">
-        <img src="{{ userDetails.profile_pic.url }}" alt="{{ user.username }}" class="h-8 w-8 rounded-full mr-2">
-
-        <span class="text-gray-700">{{ user.username }}</span>
-      </div>
-    </header>
-
-    <!-- Main Content Goes Here -->
+    {% include 'components/header.html' %}
     <div class="bg-white p-8 rounded-lg shadow-md">
       <!-- Your dashboard content -->
       <p>Dashboard Content</p>
