@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import User, UserModel
 from django.db import IntegrityError
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 
@@ -10,6 +11,7 @@ from django.contrib.auth import authenticate,login,logout
 def index(request):
     return render(request, 'index.html')
 
+@login_required()
 def dashboard(request, username):
     user = get_object_or_404(User, username=username)
 
@@ -49,7 +51,7 @@ def signin(request):
                 return redirect(next_url)
             else:
                 messages.success(request, 'Logged In Succesfully')
-                return redirect('dashboard')
+                return redirect('feed')
         else:
             messages.error(request, 'Invalid credentials. Please try again.')
             return redirect('login')
@@ -86,3 +88,9 @@ def register(request):
 
     else:
         return render(request, 'register.html')
+    
+
+@login_required()
+def signout(request): 
+    logout(request)
+    return redirect('login')

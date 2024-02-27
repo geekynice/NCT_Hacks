@@ -1,0 +1,17 @@
+{% load static %}
+<aside class="bg-gray-800 text-white h-screen w-1/5 overflow-y-auto">
+    <!-- Logo -->
+    <div class="flex items-center justify-center p-4">
+      <img src="{%static 'images/main_logo.png'%}" alt="FoodNet Logo" class="h-10">
+    </div>
+    <!-- Navigation Links -->
+    <nav>
+      <a href="{% url 'dashboard' username=user.username %}" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>
+      <a href="{% url 'feed' %}" class="block py-2 px-4 hover:bg-gray-700">Feeds</a>
+      <a href="{% url 'profile' %}" class="block py-2 px-4 hover:bg-gray-700">Profile</a>
+      <a href="{% url 'settings' %}" class="block py-2 px-4 hover:bg-gray-700">Settings</a>
+      <!-- Add more links as needed -->
+    </nav>
+
+    <a href="{% url 'logout' %}" class="absolute bottom-4 bg-red-500 text-white m-4 py-2 px-4 rounded hover:bg-red-700 focus:outline-none">Logout</a>
+  </aside>

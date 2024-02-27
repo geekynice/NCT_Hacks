@@ -1,31 +1,8 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Include Tailwind CSS via CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <title>Dashboard - FoodNet</title>
-</head>
-<body class="bg-gray-100 font-sans flex">
-
-  <!-- Side Navigation -->
-  <aside class="bg-gray-800 text-white h-screen w-1/5 overflow-y-auto">
-    <!-- Logo -->
-    <div class="flex items-center justify-center p-4">
-      <img src="{%static 'images/main_logo.png'%}" alt="FoodNet Logo" class="h-10">
-    </div>
-    <!-- Navigation Links -->
-    <nav>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Feeds</a>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Profile</a>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700">Settings</a>
-      <!-- Add more links as needed -->
-    </nav>
-  </aside>
-
+{% block body %}bg-gray-100 font-sans flex{% endblock body %}
+{% block content %}
+  {% include 'components/aside.html' %}
   <!-- Main Content Area -->
   <div class="flex-1 p-8">
     <!-- Header with User Photo -->
@@ -65,7 +42,6 @@
         <!-- Logout Button -->
         <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 focus:outline-none">Logout</button>
       </section>
+    </div>
   </div>
-
-</body>
-</html>
+{% endblock content %}
