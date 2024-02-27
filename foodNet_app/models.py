@@ -23,7 +23,7 @@ class UserModel(models.Model):
 class Food(models.Model):
     provider = models.ForeignKey(User, related_name='provided_foods', on_delete=models.CASCADE)
     taker = models.ForeignKey(User, related_name='taken_foods', on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(upload_to='food_images/')
+    image = models.ImageField(upload_to='static/food_images/')
     TYPE_CHOICES = [
         ('VEG', 'Vegetarian'),
         ('NON_VEG', 'Non-Vegetarian'),
