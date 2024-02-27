@@ -59,7 +59,7 @@ def signin(request):
                 return redirect(next_url)
             else:
                 messages.success(request, 'Logged In Succesfully')
-                return redirect('feed')
+                return redirect('dashboard')
         else:
             messages.error(request, 'Invalid credentials. Please try again.')
             return redirect('login')
@@ -208,7 +208,6 @@ def accept_food(request, food_id):
 
     host = 'nicebanjaraa@gmail.com'
 
-    # Send email notification to the provider
     provider_subject = 'Your food offer has been accepted!'
     provider_message = render_to_string('email/taker_accept_food_email.html', {'food': food})
     send_mail(provider_subject, provider_message, host, [food.provider.email])
@@ -220,3 +219,14 @@ def accept_food(request, food_id):
     send_mail(taker_subject, taker_message, host, [request.user.email])
 
     return redirect('dashboard')
+
+
+def delete_food(request, food_id):
+    food = get_object_or_404(Food, pk=food_id)
+    if food.provider == request.user:
+        messages.success(request, 'Memento deleted successfully.')
+        food.delete()
+        return redirect('dashboard')
+    else:
+        messages.error(request, 'Memento deleted successfully.')
+        return redirect('dashboard')

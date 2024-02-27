@@ -6,96 +6,97 @@
   <div class="flex-1 p-8">
     {% include 'components/header.html' %}
     <div class="bg-white p-8 rounded-lg shadow-md tab-content">
-        <div id="add-food">
-          <h1>Add Food</h1>
-          <div class="container mx-auto">
-            <form class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" action="{% url 'create_food' %}" enctype="multipart/form-data">
-              {% csrf_token %}
-              <div class="mb-4">
-                  <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
-                      Image
-                  </label>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="image" name="image" type="file" placeholder="Image">
-              </div>
-              <div class="mb-4">
-                  <label class="block text-gray-700 text-sm font-bold mb-2" for="type">
-                      Type
-                  </label>
-                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" name="type">
-                      <option value="VEG">Vegetarian</option>
-                      <option value="NON_VEG">Non-Vegetarian</option>
-                      <option value="OTHER">Other</option>
-                  </select>
-              </div>
-              <div class="mb-4">
-                  <label class="block text-gray-700 text-sm font-bold mb-2" for="weight">
-                      Weight
-                  </label>
-                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="weight" name="weight">
-                      <option value="S">Small (approx weigh 0.8 to 1kg)</option>
-                      <option value="M">Medium (approx weigh 1 to 2.5kg)</option>
-                      <option value="L">Large (approx weigh 2.5+)</option>
-                  </select>
-              </div>
-              <div class="mb-4">
-                  <label class="block text-gray-700 text-sm font-bold mb-2" for="expiry_date">
-                      Expiry Date
-                  </label>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="expiry_date" name="expiry_date" type="date" placeholder="Expiry Date">
-              </div>
-              <div class="mb-4">
-                  <label class="block text-gray-700 text-sm font-bold mb-2" for="desc">
-                      Description
-                  </label>
-                  <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="desc" name="desc" type="text" placeholder="Description"></textarea>
-              </div>
-              <div class="mb-4">
-                  <label class="block text-gray-700 text-sm font-bold mb-2" for="postal_code">
-                      Postal Code
-                  </label>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="postal_code" name="postal_code" type="text" placeholder="Postal Code">
-              </div>
-              <div class="mb-4">
-                  <label class="block text-gray-700 text-sm font-bold mb-2" for="cooked_time">
-                      Cooked Time
-                  </label>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cooked_time" name="cooked_time" type="datetime-local">
-              </div>
-              <div class="mb-4">
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                      Submit
-                  </button>
-              </div>
-          </form>
-          
-          </div>          
-        </div>
-        <section class="bg-white p-8 rounded-lg" id="feed">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for food in foods %}
-            <div class="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-              <img src="{{ food.image.url }}" alt="Food Image" class="w-full h-64 object-cover object-center">
-              <div class="p-6">
-                <h2 class="text-2xl font-bold mb-2">{{ food.type }}</h2>
-                <p class="text-gray-800 text-sm mb-4">{{ food.desc }}</p>
-                <p class="text-gray-600 text-sm">Weight: {{ food.weight }}</p>
-                  <p class="text-gray-600 text-sm">Expiry Date: {{ food.expiry_date }}</p>
-                  <p class="text-gray-600 text-sm">Postal Code: {{ food.postal_code }}</p>
-                  <p class="text-gray-600 text-sm">Cooked Time: {{ food.cooked_time }}</p>
-                  {% if food.provider|lower != request.user.username|lower %}
-                  <a href="{% url 'accept_food' food.id %}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Accept
-                </a>                
-                  {% else %}
-                    <p class="text-gray-600 text-sm">It was posted by you</p>
-                  {% endif %}
-
+        <div id="dashboard">
+            <div id="add-food">
+                <h1>Add Food</h1>
+                <div class="container mx-auto">
+                  <form class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" action="{% url 'create_food' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
+                            Image
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="image" name="image" type="file" placeholder="Image">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="type">
+                            Type
+                        </label>
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" name="type">
+                            <option value="VEG">Vegetarian</option>
+                            <option value="NON_VEG">Non-Vegetarian</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="weight">
+                            Weight
+                        </label>
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="weight" name="weight">
+                            <option value="S">Small (approx weigh 0.8 to 1kg)</option>
+                            <option value="M">Medium (approx weigh 1 to 2.5kg)</option>
+                            <option value="L">Large (approx weigh 2.5+)</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="expiry_date">
+                            Expiry Date
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="expiry_date" name="expiry_date" type="date" placeholder="Expiry Date">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="desc">
+                            Description
+                        </label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="desc" name="desc" type="text" placeholder="Description"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="postal_code">
+                            Postal Code
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="postal_code" name="postal_code" type="text" placeholder="Postal Code">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="cooked_time">
+                            Cooked Time
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cooked_time" name="cooked_time" type="datetime-local">
+                    </div>
+                    <div class="mb-4">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
                 
+                </div>          
               </div>
-            </div>
-            {% endfor %}
-          </div>
-        </section>
+              <section class="bg-white p-8 rounded-lg" id="feed">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {% for food in foods %}
+                  <div class="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="{{ food.image.url }}" alt="Food Image" class="w-full h-64 object-cover object-center">
+                    <div class="p-6">
+                      <h2 class="text-2xl font-bold mb-2">{{ food.type }}</h2>
+                      <p class="text-gray-800 text-sm mb-4">{{ food.desc }}</p>
+                      <p class="text-gray-600 text-sm">Weight: {{ food.weight }}</p>
+                        <p class="text-gray-600 text-sm">Expiry Date: {{ food.expiry_date }}</p>
+                        <p class="text-gray-600 text-sm">Postal Code: {{ food.postal_code }}</p>
+                        <p class="text-gray-600 text-sm">Cooked Time: {{ food.cooked_time }}</p>
+                        {% if food.provider|lower != request.user.username|lower %}
+                            <a href="{% url 'accept_food' food.id %}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                Accept
+                            </a>                
+                        {% else %}
+                            <p class="text-gray-600 text-sm">It was posted by you</p>
+                            <a href="{% url 'delete_food' food.id %}" class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</a>
+                        {% endif %}
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </section>
+        </div>
     </div>
   </div>
 {% endblock content %}

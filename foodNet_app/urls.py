@@ -20,4 +20,5 @@ urlpatterns = [
     path('get_user_data/<str:name>/', views.get_user_data, name='get_user_data'),
     path('create_food/', views.create_food, name='create_food'),
     path('accept_food/<int:food_id>/', views.accept_food, name='accept_food'),
+    path('delete_food/<int:food_id>/', views.delete_food, name='delete_food'),
 ]
