@@ -7,9 +7,21 @@
     <!-- Header with User Photo -->
     {% include 'components/header.html' %}
 
-    <!-- Main Content Goes Here -->
-    <div class="bg-white p-8 rounded-lg shadow-md">
-      
-    </div>
+    {% if total_emissions_saved > 0 %}
+      <div class="bg-gradient-to-r from-blue-200 to-blue-100 p-8 rounded-lg shadow-lg">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+          <div class="md:flex">
+            <div class="p-8">
+              <div class="uppercase tracking-wide text-sm text-indigo-600 font-semibold">Carbon Emissions Saved</div>
+              <div class="mt-4 text-4xl font-bold text-gray-800">{{ total_emissions_saved }} kg</div>
+              <p class="mt-2 text-gray-600">Great job! You've helped save the planet by reducing carbon emissions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <h1>No Food Donated Yet</h1>
+    {% endif %}
+    
   </div>
 {% endblock content %}

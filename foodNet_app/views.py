@@ -12,6 +12,7 @@ import json
 import random
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from .utils import calculate_total_emissions_saved
 # Create your views here.
 
 
@@ -24,7 +25,7 @@ def dashboard(request):
 
     userDetails = get_object_or_404(UserModel, user=user)
 
-    foods = Food.objects.all()
+    foods = Food.objects.filter(status=True)
     context = {
         'user': user,
         'userDetails': userDetails,
@@ -33,7 +34,9 @@ def dashboard(request):
     return render(request, 'dashboard.html', context)
 
 def feed(request):
-    return render(request, 'feed.html')
+    user = request.user
+    total_emissions_saved = calculate_total_emissions_saved(user)
+    return render(request, 'feed.html', {'total_emissions_saved': total_emissions_saved})
 
 def profile(request):
     return render(request, 'profile.html')
@@ -195,30 +198,46 @@ def generate_unique_code():
 
 def accept_food(request, food_id):
     food = Food.objects.get(pk=food_id)
+    provider = UserModel.objects.get(name=food.provider)
     
-    # Update the taker and status fields
     food.taker = request.user
     food.status = False
     
-    # Generate a unique 4-digit code
     unique_code = generate_unique_code()
     food.unique_code = unique_code
-
     food.save()
 
     host = 'nicebanjaraa@gmail.com'
 
-    provider_subject = 'Your food offer has been accepted!'
-    provider_message = render_to_string('email/taker_accept_food_email.html', {'food': food})
+    provider_subject = '🎉 Your food offer has been accepted! 🍽️'
+    provider_message = f'''
+    Hi {provider}! Your food offer has been accepted and someone will pick up the order. 
+    Please verify the 4-digit unique code before giving out the food. 
+    If any problems persist, please report them through the website. 
+
+    Your Code: {unique_code}
+
+    Thank you! 
+    🌟 Team FoodNet 🌟
+    '''
     send_mail(provider_subject, provider_message, host, [food.provider.email])
 
-    # Send email notification to the taker
     messages.success(request, 'Please check your mail for more information')
-    taker_subject = 'You have successfully accepted a food offer!'
-    taker_message = render_to_string('email/taker_accept_food_email.html', {'food': food, 'unique_code': unique_code})
-    send_mail(taker_subject, taker_message, host, [request.user.email])
 
-    return redirect('dashboard')
+    taker_subject = '🥳 You have successfully accepted a food offer! 🍲'
+    taker_message = f'''
+    Hi {request.user.username}! You can pick up your order at {provider.address}. 
+    Please verify the 4-digit unique code before taking the food. Please respect privacy.
+    If any problems persist, please report them through the website. 
+
+    Your Code: {unique_code}
+
+    Thank you! 
+    🌟 Team FoodNet 🌟
+    '''
+    send_mail(taker_subject, taker_message, host, [request.user.email])
+    messages.success(request, 'Hi, Please check your email for more instruction.')
+    return redirect('feed')
 
 
 def delete_food(request, food_id):

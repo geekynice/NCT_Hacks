@@ -49,30 +49,13 @@ class Food(models.Model):
 
     def calculate_carbon_emission(self):
         emission_factors = {
-            'VEG': {
-                'S': 0.5,
-                'M': 0.7,
-                'L': 1.0,
-            },
-            'NON_VEG': {
-                'S': 1.0,
-                'M': 1.5,
-                'L': 2.0,
-            },
-            'OTHER': {
-                'S': 0.8,
-                'M': 1.2,
-                'L': 1.6,
-            }
+            'VEG': {'S': 0.5, 'M': 0.7, 'L': 1.0},
+            'NON_VEG': {'S': 1.0, 'M': 1.5, 'L': 2.0},
+            'OTHER': {'S': 0.8, 'M': 1.2, 'L': 1.6}
         }
         emission_factor = emission_factors.get(self.type, {}).get(self.weight)
         if emission_factor is not None:
-            weight_values = {'S': 0.5, 'M': 1.0, 'L': 1.5} 
-            weight = weight_values.get(self.weight)
-            if weight is not None:
-                self.carbon_emission = emission_factor * weight
-            else:
-                self.carbon_emission = None
+            self.carbon_emission = emission_factor * (0.5 + ['S', 'M', 'L'].index(self.weight) * 0.5)
         else:
             self.carbon_emission = None
 
