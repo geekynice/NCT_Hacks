@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accept Food Offer</title>
+</head>
+<body>
+    <p>Congratulations!</p>
+    <p>You have successfully accepted a food offer. Here are the details:</p>
+    <ul>
+        <li>Food Provider: {{ food.provider }}</li>
+        <li>Provider Address: {{ provider_address }}</li>
+        <li>Unique Code: {{ unique_code }}</li>
+        <!-- Add other food details as needed -->
+    </ul>
+    <p>Please use the provided unique code when picking up the food.</p>
+    <!-- Add any other message or instructions here -->
+</body>
+</html>

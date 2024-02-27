@@ -6,7 +6,7 @@
     </div>
     <!-- Navigation Links -->
     <nav>
-      <a href="{% url 'dashboard' username=user.username %}" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>
+      <a href="{% url 'dashboard' %}" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>
       <a href="{% url 'feed' %}" class="block py-2 px-4 hover:bg-gray-700">Feeds</a>
       <a href="{% url 'profile' %}" class="block py-2 px-4 hover:bg-gray-700">Profile</a>
       <a href="{% url 'settings' %}" class="block py-2 px-4 hover:bg-gray-700">Settings</a>
@@ -14,4 +14,11 @@
     </nav>
 
     <a href="{% url 'logout' %}" class="absolute bottom-4 bg-red-500 text-white m-4 py-2 px-4 rounded hover:bg-red-700 focus:outline-none">Logout</a>
-  </aside>
+    <a id="switchRoleBtn" href="" data-username="{{ userDetails.name }}" class="bottom-4 bg-green-500 text-white my-4 mx-4 text-center block py-2 px-4 rounded hover:bg-red-700 focus:outline-none">
+      {% if userDetails.is_donor %}
+          Switch to Receiver
+      {% else %}
+          Switch to Donor
+      {% endif %}
+  </a>
+</aside>
