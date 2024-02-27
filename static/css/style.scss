@@ -8,6 +8,11 @@
 nav{
     z-index: 1000;
 }
+
+$transparent-bg: transparent !important;
+$scrolled-bg: #3a3a3a24 !important;
+
+
 nav .logo-image{
     width: 45%;
 }
@@ -17,15 +22,20 @@ nav .logo-image{
 body {
     margin: 0;
     padding: 0;
+    
+  }
+
+  section{
+    padding-top: 80px !important;
   }
   
   #home-section {
     position: relative;
     height: 100vh;
-    background-image: url('../images/home-bg.webp'); /* Replace with the path to your background image */
+   
     background-size: cover;
     background-position: center;
-    color: #fff; /* Text color on top of the background image */
+    
     display: flex;
     align-items: center;
   }
@@ -62,4 +72,16 @@ body {
   body, section{
     overflow-x: hidden;
   }
+
+
+    .accordion-title {
+      background-color: #4299e1;
+      color: #ffffff;
+    }
+
+    .accordion-content {
+      background-color: #f7fafc;
+      border-top: 1px solid #cbd5e0;
+    }
+ 
   

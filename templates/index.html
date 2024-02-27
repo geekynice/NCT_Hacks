@@ -20,123 +20,693 @@
 {% endif %}
 {% block content %}
 {% include 'components/navbar.html' %}
-<section id="home-section" class="h-screen flex items-center bg-cover bg-center relative">
-  <div class="absolute inset-0 bg-black opacity-60"></div>
-  <div class="content text-center text-white z-10">
-    <h1 class="text-4xl font-bold mb-4">Welcome to FoodNet</h1>
-    <p class="text-lg mb-6">Help us control the environmental impacts from food waste and make a positive difference in
-      someone else's life.</p>
-    <a href="{%url 'register'%}" class="button bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Start Making
-      a Difference</a>
+<section id="home-section" class=" flex items-center relative bg-green-50"">
+  
+
+  <!-- Content Container -->
+  <div class="mx-auto h-full px-6 py-12 md:py-24 flex justify-around items-center text-white relative z-10">
+    <!-- Left Column -->
+    <div class="w-full md:w-1/3 text-left">
+      <h1 class="text-5xl text-green-800 font-extrabold mb-5">Confronting a global crisis</h1>
+      <p class="text-2xl text-black mb-7">Billions of pounds of wasted food, fueling environmental havoc. Every meal shared is a step towards change. Ready to make a monumental difference? Create an account now.</p>
+      <a href="{%url 'register'%}" class="bg-green-700 mt-5 text-white text-xl py-3 px-7 rounded hover:bg-green-800 hover:text-gray-200 transition duration-300 ease-in-out">Start Making a Difference</a>
+    </div>
+
+    <!-- Right Column - You can add an image or other content here -->
+    <div class="w-full md:w-1/2 mt-6 md:mt-0">
+      <img src="{% static 'images/home-bg.webp' %}" alt="" class=" h-76 rounded-lg max-w-full">
+    </div>
   </div>
 </section>
 
-<!-- About Us Section -->
-<section id="about-section" class="py-16 bg-gray-100">
+
+
+<section id="about-section" class="py-16 bg-blue-50 text-white">
   <div class="container mx-auto px-8">
-    <div class="flex flex-col md:flex-row items-center">
+    <div class="flex flex-col lg:flex-row items-center m-7">
       <!-- Left Column - Image -->
-      <div class="md:w-1/2 mb-6 md:mb-0">
-        <img src="{% static 'images/aboutus-image.jpg' %}" alt="About Us" class="rounded-lg shadow-lg w-100">
-
+      <div class="lg:w-1/2 mb-6 lg:mb-0 order-2 lg:order-1">
+        <img src="{% static 'images/aboutus-image.jpg' %}" alt="About Us" class="rounded-lg shadow-lg w-5/6">
       </div>
+
       <!-- Right Column - Text -->
-      <div class="md:w-1/2 md:pl-12">
-        <h2 class="text-3xl font-bold mb-4 text-indigo-800">About Us</h2>
-        <p class="text-lg text-gray-600 mb-6">
-          FoodNet is on a mission to reduce food wastage and make a positive impact on the environment. We connect
-          individuals and businesses with surplus food to those in need, creating a sustainable solution for our
-          community.
+      <div class="lg:w-1/2 lg:pr-12 order-1 lg:order-2">
+        <h2 class="text-4xl text-blue-700 font-extrabold mb-4">About Us</h2>
+        <p class="text-lg text-black  mb-6 leading-relaxed">
+          <span class="text-yellow-700 text-xl font-bold block mb-2">Mission Statement</span> At FoodNet, we are on a mission to eradicate food waste and reduce its environmental impact by connecting those with excess food to those in need.
         </p>
-        <p class="text-lg text-gray-600">
-          Join us in our journey to build a world where no good food goes to waste, and everyone has access to
-          nutritious meals. Together, we can make a difference.
+        <p class="text-lg text-black mb-6 leading-relaxed">
+          <span class="text-yellow-700 text-xl font-bold block mb-2">Why We Exist</span> Globally, billions of pounds of food go to waste, contributing to environmental degradation. We believe every meal shared is a step towards a more sustainable future.
+        </p>
+        <p class="text-lg text-black leading-relaxed">
+          <span class="text-yellow-700 text-xl font-bold block mb-2">Solution Offered</span> FoodNet serves as a bridge, facilitating the sharing and donation of surplus food to reduce waste and create positive change.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- Our Vision Section -->
-<section id="vision-section" class="py-16 bg-gray-200">
+<section id="impact-section" class="py-16 bg-yellow-50 text-black">
   <div class="container mx-auto px-8">
-    <div class="flex flex-col md:flex-row items-center">
+    <div class="flex flex-col lg:flex-row items-center">
       <!-- Left Column - Text -->
-      <div class="md:w-1/2 md:pr-12">
-        <h2 class="text-3xl font-bold mb-4 text-indigo-800">Our Vision</h2>
-        <p class="text-lg text-gray-600 mb-6">
-          At FoodNet, our vision is to create a world where no one goes to bed hungry, and food waste is minimized. We
-          strive to build a community that cares for the environment and ensures that every person has access to
-          nutritious food.
+      <div class="lg:w-1/2 lg:pr-12">
+        <h2 class="text-4xl text-yellow-700 font-extrabold mb-4">Our Impact</h2>
+        <p class="text-lg mb-6 leading-relaxed">
+          Over the years, FoodNet has made a significant impact in reducing food waste and contributing to a more sustainable future. Our efforts have helped bridge the gap between surplus food and those in need.
         </p>
-        <p class="text-lg text-gray-600">
-          Join us in making a positive impact on the planet and fostering a culture of sharing and compassion.
+        <p class="text-lg leading-relaxed">
+          Explore the key statistics below to see the positive change we've achieved together:
         </p>
       </div>
-      <!-- Right Column - Image -->
-      <div class="md:w-1/2">
-        <img src="{% static 'images/vision.jpg' %}" alt="Our Vision" class="rounded-lg shadow-lg w-full h-auto">
+
+      <!-- Right Column - Graphs -->
+      <div class="lg:w-1/2 mb-6 lg:mb-0">
+        <!-- Example: Simple Bar Chart (replace with your actual data) -->
+        <div class="bg-white rounded-lg shadow-lg p-4">
+          
+          <!-- Replace these values with your actual data -->
+          <div class="flex items-center mb-2">
+            <div class="w-1/3">Meals Donated</div>
+            <div class="w-2/3">
+              <div class="bg-green-500 h-4 rounded-full" style="width: 70%;"></div>
+            </div>
+          </div>
+          <div class="flex items-center mb-2">
+            <div class="w-1/3">Food Waste Reduced</div>
+            <div class="w-2/3">
+              <div class="bg-blue-500 h-4 rounded-full" style="width: 85%;"></div>
+            </div>
+          </div>
+          <!-- Add more data points as needed -->
+
+          <!-- Example: Legend -->
+          <div class="text-sm text-gray-700">
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div> Meals Donated
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div> Food Waste Reduced
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<section id="work-section" class="container mx-auto p-8 bg-red-50  rounded shadow-lg">
+  <h2 class="text-4xl text-red-700 font-extrabold mb-7 text-center">How It Works</h2>
+  <br><br>
+
+  <!-- Step-by-Step Process -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Step 1 -->
+    <div class="flex flex-col items-center">
+      <div class="w-20 h-20 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
+        1
+      </div>
+      <p class="text-lg font-semibold text-center">Create an Account</p>
+      <p class="text-gray-600 text-center">Sign up and join our community.</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex flex-col items-center">
+      <div class="w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center mb-4">
+        2
+      </div>
+      <p class="text-lg font-semibold text-center">Share Surplus Food</p>
+      <p class="text-gray-600 text-center">Share your excess food items with those in need.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex flex-col items-center">
+      <div class="w-20 h-20 bg-yellow-500 text-white rounded-full flex items-center justify-center mb-4">
+        3
+      </div>
+      <p class="text-lg font-semibold text-center">Connect with Others</p>
+      <p class="text-gray-600 text-center">Connect with individuals or organizations in your community.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="flex flex-col items-center">
+      <div class="w-20 h-20 bg-red-500 text-white rounded-full flex items-center justify-center mb-4">
+        4
+      </div>
+      <p class="text-lg font-semibold text-center">Make a Difference</p>
+      <p class="text-gray-600 text-center">Together, we can make a positive impact—one meal at a time.</p>
+    </div>
+  </div>
+
+  <!-- Additional Details -->
+  <p class="text-black mt-8 text-center">
+    Joining FoodNet is a simple four-step process. Begin by creating an account to access our platform. Once registered, share your surplus food or find local donation opportunities. Connect with individuals or organizations in need, and together, we can make a difference—one meal at a time.
+  </p>
+</section>
+
+<script type="module">
+  import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
+
+  const keenSlider = new KeenSlider(
+    '#keen-slider',
+    {
+      loop: true,
+      slides: {
+        origin: 'center',
+        perView: 1.25,
+        spacing: 16,
+      },
+      breakpoints: {
+        '(min-width: 1024px)': {
+          slides: {
+            origin: 'auto',
+            perView: 1.5,
+            spacing: 32,
+          },
+        },
+      },
+    },
+    []
+  )
+
+  const keenSliderPrevious = document.getElementById('keen-slider-previous')
+  const keenSliderNext = document.getElementById('keen-slider-next')
+
+  const keenSliderPreviousDesktop = document.getElementById('keen-slider-previous-desktop')
+  const keenSliderNextDesktop = document.getElementById('keen-slider-next-desktop')
+
+  keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
+  keenSliderNext.addEventListener('click', () => keenSlider.next())
+
+  keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev())
+  keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
+</script>
+
+<section id="testimonials-section" class="bg-green-50">
+  <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
+      <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+        <h2 class="text-4xl font-extrabold tracking-tight text-green-700 sm:text-4xl">
+          What our People Say
+        </h2>
+
+        
+
+        <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+          <button
+            aria-label="Previous slide"
+            id="keen-slider-previous-desktop"
+            class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-5 rtl:rotate-180"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+
+          <button
+            aria-label="Next slide"
+            id="keen-slider-next-desktop"
+            class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+          >
+            <svg
+              class="size-5 rtl:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 5l7 7-7 7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="-mx-6 lg:col-span-2 lg:mx-0">
+        <div id="keen-slider" class="keen-slider">
+          <div class="keen-slider__slide">
+            <blockquote
+              class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+            >
+              <div>
+                <div class="flex gap-0.5 text-green-500">
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                </div>
+
+                <div class="mt-4">
+                  <p class="text-2xl font-bold text-rose-600 sm:text-3xl">Empowered to Make a Difference</p>
+
+                  <p class="mt-4 leading-relaxed text-gray-700">
+                    Joining FoodNet has been a transformative experience for me. The platform's simplicity and the sense of community have empowered me to contribute to a cause that truly makes a difference. It's more than just sharing food; it's about creating positive change in our neighborhoods
+                  </p>
+                </div>
+              </div>
+
+              <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                &mdash; Bikash Parajuli
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="keen-slider__slide">
+            <blockquote
+              class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+            >
+              <div>
+                <div class="flex gap-0.5 text-green-500">
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                </div>
+
+                <div class="mt-4">
+                  <p class="text-2xl font-bold text-rose-600 sm:text-3xl">Beyond Expectations</p>
+
+                  <p class="mt-4 leading-relaxed text-gray-700">
+                    I've been a volunteer with FoodNet for several months now, and the platform has exceeded my expectations. The user-friendly interface makes it easy to connect with amazing individuals who share a passion for reducing food waste. Together, we're making a meaningful impact, one shared meal at a time
+                  </p>
+                </div>
+              </div>
+
+              <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                &mdash; Ramesh Sharma
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="keen-slider__slide">
+            <blockquote
+              class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+            >
+              <div>
+                <div class="flex gap-0.5 text-green-500">
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                </div>
+
+                <div class="mt-4">
+                  <p class="text-2xl font-bold text-rose-600 sm:text-3xl">Making a Difference</p>
+
+                  <p class="mt-4 leading-relaxed text-gray-700">
+                    Being part of a community that cares deeply about reducing food waste is a rewarding experience. FoodNet has made it straightforward for me to make a meaningful impact by sharing excess food. The platform's effectiveness and the positive responses from those in need validate the importance of this initiative.
+                  </p>
+                </div>
+              </div>
+
+              <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                &mdash; Michael Scott
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex justify-center gap-4 lg:hidden">
+      <button
+        aria-label="Previous slide"
+        id="keen-slider-previous"
+        class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+      >
+        <svg
+          class="size-5 -rotate-180 transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+        </svg>
+      </button>
+
+      <button
+        aria-label="Next slide"
+        id="keen-slider-next"
+        class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+      >
+        <svg
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section id="involved-section" class="container mx-auto p-8 bg-white rounded shadow-lg bg-blue-50">
+  <h2 class="text-4xl text-blue-700 font-bold mb-6 text-center">Get Involved</h2>
+
+  <!-- Action Steps -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Step 1 -->
+    <div class="p-6 bg-gray-200 rounded-md flex flex-col items-center">
+      <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
+        1
+      </div>
+      <p class="text-lg font-semibold mb-2">Create an Account</p>
+      <p class="text-gray-600 text-center">Join our community by creating a free account. It only takes a few minutes!</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="p-6 bg-gray-200 rounded-md flex flex-col items-center">
+      <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mb-4">
+        2
+      </div>
+      <p class="text-lg font-semibold mb-2">Share Surplus Food</p>
+      <p class="text-gray-600 text-center">Contribute to the cause by sharing excess food items. Every contribution makes a difference!</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="p-6 bg-gray-200 rounded-md flex flex-col items-center">
+      <div class="w-16 h-16 bg-yellow-500 text-white rounded-full flex items-center justify-center mb-4">
+        3
+      </div>
+      <p class="text-lg font-semibold mb-2">Connect with Others</p>
+      <p class="text-gray-600 text-center">Build connections with individuals and organizations in your community who share similar values.</p>
+    </div>
+
+    <!-- Add more steps as needed -->
+  </div>
+
+  <!-- Call to Action -->
+  <div class="mt-8 text-center">
+    <p class="text-gray-600">Ready to make a difference?</p>
+    <a href="{% url 'register' %}" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-full mt-4 hover:bg-blue-600 transition duration-300">Get Started</a>
+  </div>
+</section>
+
+<section class="container mx-auto p-8 bg-yellow-50  rounded shadow-lg">
+  <h2 class="text-4xl text-yellow-700 font-extrabold mb-7 text-center">Frequently Asked Questions</h2>
+
+  <!-- FAQ Accordion -->
+  <div class="accordion">
+    <!-- FAQ 1 -->
+    <div class="accordion-item mb-4">
+      <h3 class="accordion-title cursor-pointer p-4 rounded-t-lg">How do I get started?</h3>
+      <div class="accordion-content hidden p-4">
+        <p>Getting started is easy! Simply create an account, share surplus food, and connect with others in your community. Visit our "Get Involved" section for detailed steps.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item mb-4">
+      <h3 class="accordion-title cursor-pointer p-4 rounded-t-lg">Is there a cost to use the platform?</h3>
+      <div class="accordion-content hidden p-4">
+        <p>No, our platform is free to use. We believe in making a positive impact accessible to everyone. There are no hidden fees or costs associated with participating in our community.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item mb-4">
+      <h3 class="accordion-title cursor-pointer p-4 rounded-t-lg">How can I connect with others?</h3>
+      <div class="accordion-content hidden p-4">
+        <p>You can connect with other users by exploring our community section. Find individuals or organizations with similar interests and values, and start building connections that make a difference.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item mb-4">
+      <h3 class="accordion-title cursor-pointer p-4 rounded-t-lg">What types of food can be shared?</h3>
+      <div class="accordion-content hidden p-4">
+        <p>You can share a variety of food items, including perishable and non-perishable items. However, please ensure that the food is safe for consumption and complies with local regulations.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="accordion-item mb-4">
+      <h3 class="accordion-title cursor-pointer p-4 rounded-t-lg">Can I donate non-food items?</h3>
+      <div class="accordion-content hidden p-4">
+        <p>Currently, our platform focuses on sharing surplus food. However, we appreciate your willingness to contribute. Stay tuned for any future updates on accepting non-food items.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 6 -->
+    <div class="accordion-item mb-4">
+      <h3 class="accordion-title cursor-pointer p-4 rounded-t-lg">Are my personal details secure?</h3>
+      <div class="accordion-content hidden p-4">
+        <p>Yes, we take the security of your personal information seriously. Our platform employs robust security measures to protect your data. You can review our privacy policy for more details.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 7 -->
+    <div class="accordion-item mb-4">
+      <h3 class="accordion-title cursor-pointer p-4 rounded-t-lg">What if I encounter issues with the platform?</h3>
+      <div class="accordion-content hidden p-4">
+        <p>If you face any issues or have questions, our support team is here to help. You can reach out to our support team through the "Contact Us" section, and we'll assist you promptly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for Accordion Functionality -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get all accordion items
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    // Add click event listener to each accordion item
+    accordionItems.forEach(item => {
+      const title = item.querySelector('.accordion-title');
+
+      title.addEventListener('click', () => {
+        // Toggle the 'hidden' class to expand/collapse the accordion item
+        item.querySelector('.accordion-content').classList.toggle('hidden');
+      });
+    });
+  });
+</script>
+
 
 <!-- Our Team Section -->
-<section id="team-section" class="py-16 bg-gray-100">
+<section id="team-section" class="py-16 bg-red-50">
   <div class="container mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center text-indigo-800">Meet Our Team</h2>
+    <h2 class="text-4xl font-extrabold mb-8 text-center text-red-800">Meet Our Team</h2>
     <div class="flex flex-wrap justify-center -mx-4 p-12">
       <!-- Team Member 1 -->
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/5 px-4 mb-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+        <div class=" bg-blue-50 flex items-center justify-center p-5 flex-col rounded-lg overflow-hidden shadow-md">
           <img src="{% static 'images/nice.jpg' %}" alt="Team Member 1"
-            class="w-full h-48 object-cover object-center rounded-t-lg rounded-b-lg">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-indigo-800">Nice Banjara</h3>
+            class="w-48 h-48 object-cover object-center rounded-full">
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold text-indigo-800">Nice Banjara</h3>
             <p class="text-sm text-gray-600">Team Member</p>
           </div>
         </div>
       </div>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/5 px-4 mb-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+        <div class=" bg-blue-50 flex items-center justify-center p-5 flex-col rounded-lg overflow-hidden shadow-md">
           <img src="{% static 'images/prajwal.jpg' %}" alt="Team Member 1"
-            class="w-full h-48 object-cover object-center rounded-t-lg rounded-b-lg">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-indigo-800">Prajwal Neupane</h3>
+            class="w-48 h-48 object-cover object-center rounded-full">
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold text-indigo-800">Prajwal Neupane</h3>
             <p class="text-sm text-gray-600">Team Member</p>
           </div>
         </div>
       </div>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/5 px-4 mb-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-          <img src="{% static 'images/team-member1.jpg' %}" alt="Team Member 1"
-            class="w-full h-48 object-cover object-center rounded-t-50 rounded-b-50">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-indigo-800">Piyush Bhattarai</h3>
+        <div class=" bg-blue-50 flex items-center justify-center p-5 flex-col rounded-lg overflow-hidden shadow-md">
+          <img src="{% static 'images/piyush.jpg' %}" alt="Team Member 1"
+            class="w-48 h-48 object-cover object-center rounded-full">
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold text-indigo-800">Piyush Bhattarai</h3>
             <p class="text-sm text-gray-600">Team Member</p>
           </div>
         </div>
       </div>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/5 px-4 mb-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-          <img src="{% static 'images/team-member1.jpg' %}" alt="Team Member 1"
-            class="w-full h-48 object-cover object-center rounded-t-lg rounded-b-lg">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-indigo-800">Biplav Dahal</h3>
+        <div class=" bg-blue-50 flex items-center justify-center p-5 flex-col rounded-lg overflow-hidden shadow-md">
+          <img src="{% static 'images/biplav.jpg' %}" alt="Team Member 1"
+            class="w-48 h-48 object-cover object-center rounded-full">
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold text-indigo-800">Biplav Dahal</h3>
             <p class="text-sm text-gray-600">Team Member</p>
           </div>
         </div>
       </div>
-      <!-- Team Member 2 (Repeat similar structure for other team members) -->
-      <!-- ... -->
-      <!-- Team Member 5 -->
+      
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/5 px-4 mb-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-          <img src="{% static 'images/anurag2.jpg' %}" alt="Team Member 5"
-            class="w-full h-48 object-cover object-center rounded-t-lg rounded-b-lg">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-indigo-800">Anurag Saini</h3>
+        <div class=" bg-blue-50 flex items-center justify-center p-5 flex-col rounded-lg overflow-hidden shadow-md">
+          <img src="{% static 'images/anurag.jpg' %}" alt="Team Member 1"
+            class="w-48 h-48 object-cover object-center rounded-full">
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold text-indigo-800">Anurag Saini</h3>
             <p class="text-sm text-gray-600">Team Member</p>
           </div>
         </div>
@@ -147,74 +717,97 @@
 
 
 <!-- Contact Us Section -->
-<section id="contact-section" class="py-16 bg-gray-200">
+<section id="contact-section" class="bg-green-50 py-16">
   <div class="container mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center text-indigo-800">Contact Us</h2>
-    <div class="flex flex-wrap">
+    <div class="flex flex-col md:flex-row items-center justify-around">
+
       <!-- Contact Form -->
-      <div class="w-full md:w-1/2 px-4 mb-8">
-        <form action="#" method="post" class="bg-white rounded-lg shadow-lg p-6">
+      <div class="w-full md:w-1/2 mb-8 md:mb-0 md:pr-8 flex flex-col items-center justify-center">
+        <h2 class="text-3xl text-green-700 font-extrabold mb-4">Get in Touch</h2>
+        <form action="#" method="post" class="max-w-md w-full">
+          <!-- Your form fields go here -->
           <div class="mb-4">
-            <label for="name" class="block text-gray-800 text-sm font-semibold mb-2">Your Name</label>
-            <input type="text" id="name" name="name"
-              class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+            <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+            <input type="text" id="name" name="name" class="mt-1 p-3 w-full border rounded-md">
           </div>
           <div class="mb-4">
-            <label for="email" class="block text-gray-800 text-sm font-semibold mb-2">Your Email</label>
-            <input type="email" id="email" name="email"
-              class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+            <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+            <input type="email" id="email" name="email" class="mt-1 p-3 w-full border rounded-md">
           </div>
           <div class="mb-4">
-            <label for="message" class="block text-gray-800 text-sm font-semibold mb-2">Your Message</label>
-            <textarea id="message" name="message" rows="4"
-              class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 " style="resize: none;"
-              required></textarea>
+            <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+            <textarea id="message" name="message" rows="4" class="mt-1 p-3 w-full border rounded-md" style="resize: none;"></textarea>
           </div>
-          <button type="submit"
-            class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none">Send Message</button>
+          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 w-full">Send Message</button>
         </form>
       </div>
+
       <!-- Contact Information -->
-      <div class="w-full md:w-1/2 px-4">
-        <div class="bg-white rounded-lg shadow-lg p-6">
-          <h3 class="text-xl font-bold mb-4 text-gray-800">Our Office</h3>
-          <p class="text-gray-600 mb-4">740 Bathurst Street<br>Toronto, ON M5S 2R6, Canada</p>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">Email</h3>
-          <p class="text-gray-600 mb-4">info@foodnet.ca</p>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">Phone</h3>
-          <p class="text-gray-600 mb-4">+1 (986) 452-9330</p>
-        </div>
+      <div class="w-full md:w-1/2 md:pl-8 flex flex-col items-center justify-center md:block ">
+        <h2 class="text-3xl text-center text-green-700 font-extrabold mb-4">Contact Information</h2>
+        <p class="text-lg mb-2"><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i> 740 Bathurst St, Toronto, ON M5S 2R6, Canada</p>
+        <p class="text-lg mb-2"><i class="fas fa-envelope text-blue-500 mr-2"></i> info@foodnet.com</p>
+        <p class="text-lg mb-2"><i class="fas fa-phone-alt text-blue-500 mr-2"></i> +1 (438) 256-7830</p>
+
+        <!-- Map (You can replace this with an actual map embed code) -->
+        <div style="width: 100%"><iframe width="600" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=300&amp;hl=en&amp;q=740%20Bathurst%20St+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps systems</a></iframe></div>
       </div>
+
     </div>
   </div>
 </section>
 
 
-<footer class="bg-gray-800 text-white py-12">
-  <div class="container mx-auto flex flex-col md:flex-row items-center justify-between p-8">
-    <!-- Logo -->
-    <div class="mb-4 md:mb-0">
-      <a href="{%url 'index'%}">
-        <img src="{% static 'images/main_logo.png'%}" alt="FoodNet Logo" class="h-10">
-      </a>
 
+
+<footer class="bg-gray-700 text-white py-12">
+  <div class="container mx-auto flex flex-wrap md:justify-around md:items-center">
+
+    <!-- Footer Logo -->
+    <div class="w-full md:w-1/4 mb-6 md:mb-0 text-center flex items-center justify-center flex-col md:block">
+      <img src="{% static 'images/main_logo.png' %}" class="md:w-3/4 w-1/2 mx-auto" alt="">
+      <p class="text-sm text-center mt-2">Making a difference in communities.</p>
     </div>
-    <!-- Navigation Links -->
-    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-      <a href="#home-section" class="text-gray-300 hover:text-white">Home</a>
-      <a href="#about-section" class="text-gray-300 hover:text-white">About Us</a>
-      <a href="#vision-section" class="text-gray-300 hover:text-white">Our Vision</a>
-      <a href="#team-section" class="text-gray-300 hover:text-white">Our Team</a>
-      <a href="#contact-section" class="text-gray-300 hover:text-white">Contact Us</a>
+
+    <!-- Quick Links -->
+    <div class="w-full md:w-1/4 mb-6 md:mb-0 flex items-center justify-center flex-col md:block">
+      <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
+      <ul class="list-none">
+        <li><a href="#home-section" class="hover:text-gray-400">Home</a></li>
+        <li><a href="#about-section" class="hover:text-gray-400">About Us</a></li>
+        <li><a href="#work-section" class="hover:text-gray-400">How It Works</a></li>
+        <li><a href="#involved-section" class="hover:text-gray-400">Get Envolved</a></li>
+        <li><a href="#team-section" class="hover:text-gray-400">Meet Our Team</a></li>
+        <li><a href="#contact-section" class="hover:text-gray-400">Contact Us</a></li>
+      </ul>
     </div>
-    <!-- Move to Top Button -->
-    <button onclick="scrollToTop()"
-      class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none">
-      Move to Top
-    </button>
+
+    <!-- Contact Information -->
+    <div class="w-full md:w-1/4 mb-6 md:mb-0 flex items-center justify-center flex-col md:block">
+      <h2 class="text-lg font-semibold mb-4">Contact Us</h2>
+      <p class="text-sm">123 Main Street<br> Cityville, Country</p>
+      <p class="text-sm mt-2">Email: info@example.com</p>
+      <p class="text-sm mt-2">Phone: +1 (123) 456-7890</p>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="w-full items-center md:w-1/4 mb-6 md:mb-0 flex items-center justify-center flex-col md:block">
+      <h2 class="text-lg font-semibold mb-4">Follow Us</h2>
+      <div class="flex space-x-4">
+        <a href="#" class="text-lg hover:text-gray-400"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-lg hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-lg hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-lg hover:text-gray-400"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
   </div>
+  <hr class="my-8">
   <!-- Copyright Message -->
-  <hr class="my-6 border-gray-700">
-  <p class="text-gray-500 text-center">© 2024 FoodNet. All rights reserved.</p>
+  <div class="text-center">
+    <p class="text-sm">&copy; 2024 FoodNet. All rights reserved.</p>
+  </div>
 </footer>
+
+
 {% endblock content %}
