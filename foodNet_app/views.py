@@ -33,6 +33,7 @@ def dashboard(request):
     }
     return render(request, 'dashboard.html', context)
 
+@login_required
 def feed(request):
     user = request.user
     total_emissions_saved = calculate_total_emissions_saved(user)
@@ -135,7 +136,7 @@ def switch_role(request, name):
         # Handle other HTTP methods (e.g., PUT, DELETE)
         return HttpResponseNotAllowed(['POST', 'GET'])
     
-
+@login_required
 def get_user_data(request, name):
     try:
         # Retrieve user data based on the username
@@ -156,6 +157,7 @@ def get_user_data(request, name):
 
 from django.utils.timezone import make_aware
 
+@login_required
 def create_food(request):
     if request.method == 'POST':
         image = request.FILES.get('image')
@@ -196,6 +198,7 @@ def create_food(request):
 def generate_unique_code():
     return str(random.randint(1000, 9999))
 
+@login_required
 def accept_food(request, food_id):
     food = Food.objects.get(pk=food_id)
     provider = UserModel.objects.get(name=food.provider)
@@ -239,7 +242,7 @@ def accept_food(request, food_id):
     messages.success(request, 'Hi, Please check your email for more instruction.')
     return redirect('feed')
 
-
+@login_required
 def delete_food(request, food_id):
     food = get_object_or_404(Food, pk=food_id)
     if food.provider == request.user:
